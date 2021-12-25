@@ -1,4 +1,13 @@
 (setq *rulesbase* '(
+    (((eq apparence rubis)) (eq style fruitbeer))
+    (((eq apparence blanche)) (<= ebc 8))
+    (((eq apparence blonde)) (eq ebc 12))
+    (((eq apparence brune)) (eq ebc ))
+    (((eq apparence ambree)) (ambree))
+
+))
+
+(setq *bierbase* '(
     (((APPARENCE fruitee)(GOUT cerise)) "Kasteel Rouge")
     (((APPARENCE fruitee)(GOUT peche)) "Peche Mel Bush")
     (((APPARENCE blanche)(REGION belgique)) "Baptist Blanche")
