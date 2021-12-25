@@ -35,3 +35,31 @@
     ("Preferez-vous un arome de fruit ou de cereale pour votre biere ?" 'AROME)
 ))
 
+(setq *rulesbases2* '(
+    (((eq COULEUR blonde)(> DEGRE 5))(FAMILLE hype_blonde))
+    (((eq COULEUR blonde)(<= DEGRE 5))(FAMILLE wheat_bear))
+    (((eq COULEUR blonde)(<= DEGRE 6))(FAMILLE ipa))
+    (((eq COULEUR brune)(<= DEGRE 8))(FAMILLE dubel))
+    (((eq COULEUR brune)(> DEGRE 8))(FAMILLE strong_ale))
+
+    (((eq FAMILLE ipa)(eq REGION canada))(STYLE canadian_ipa))
+    (((eq FAMILLE ipa)(eq REGION amerique))(STYLE american_ipa))
+    (((eq STYLE canadian_ipa))(BEER castor))
+    (((eq STYLE american_ipa))(BEER lagunitas))
+
+    (((eq FAMILLE wheat_bear)(AROME fruit_blanc))(BEER baptiste_blanche))
+    (((eq FAMILLE wheat_bear)(AROME agrumes))(BEER azimuth))
+    (((eq FAMILLE wheat_bear)(AROME caramel))(BEER paillette))
+
+    (((eq FAMILLE dubel)(AMERTUME moyenne))(BEER chimay_rouge))
+    (((eq FAMILLE dubel)(AMERTUME forte))(BEER st_feuillen_brune))
+
+    (((eq FAMILLE hype_blonde)(< DEGRE 9))(STYLE pale_ale))
+    (((eq FAMILLE hype_blonde)(>= DEGRE 9))(STYLE tripel))
+    (((eq STYLE pale_ale)(SERVIE pression))(TYPE pale_ale_pression))
+    (((eq STYLE pale_ale)(SERVIE bouteille))(TYPE pale_ale_bouteille))
+    (((eq TYPE pale_ale_pression)(AROME agrumes))(BEER cuvee))
+    (((eq TYPE pale_ale_pression)(AROME epices))(BEER delirium))
+    (((eq TYPE pale_ale_bouteille)(AROME agrumes))(BEER chouffe))
+    (((eq TYPE pale_ale_bouteille)(AROME epices))(BEER duvel))
+))
