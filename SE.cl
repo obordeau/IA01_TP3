@@ -44,15 +44,15 @@
 
     (((eq FAMILLE ipa)(eq REGION canada))(STYLE canadian_ipa))
     (((eq FAMILLE ipa)(eq REGION amerique))(STYLE american_ipa))
-    (((eq STYLE canadian_ipa))(BEER castor))
-    (((eq STYLE american_ipa))(BEER lagunitas))
+    (((eq STYLE canadian_ipa))(BEER "Castor"))
+    (((eq STYLE american_ipa))(BEER "Lagunitas"))
 
     (((eq FAMILLE wheat_bear)(AROME fruit_blanc))(BEER "Baptiste blanche"))
     (((eq FAMILLE wheat_bear)(AROME agrumes))(BEER "Azimuth"))
     (((eq FAMILLE wheat_bear)(AROME caramel))(BEER "Paillette"))
 
     (((eq FAMILLE dubel)(AMERTUME moyenne))(BEER "Chimay rouge"))
-    (((eq FAMILLE dubel)(AMERTUME forte))(BEER "St Feuillenbrune"))
+    (((eq FAMILLE dubel)(AMERTUME forte))(BEER "St Feuillen brune"))
 
     (((eq FAMILLE blonde)(< DEGRE 9))(STYLE pale_ale))
     (((eq FAMILLE blonde)(>= DEGRE 9))(STYLE tripel))
@@ -63,7 +63,7 @@
     (((eq TYPE pale_ale_bouteille)(AROME agrumes))(BEER "Chouffe"))
     (((eq TYPE pale_ale_bouteille)(AROME epices))(BEER "Duvel"))
     (((eq STYLE triple)(eq TYPE special))(STYLE special_tripel))
-    (((eq STYLE triple)(eq TYPE abbaye))(BEER Valdieu))
+    (((eq STYLE triple)(eq TYPE abbaye))(BEER "Valdieu"))
     (((eq STYLE special_tripel)(= PRIX 1.6))(BEER "Queue de charrue"))
     (((eq STYLE special_tripel)(= PRIX 1.8)(AROME epices))(BEER "Gouden Carolus"))
     (((eq STYLE special_tripel)(= PRIX 1.8)(AROME agrumes))(BEER "Triple Karmeliet"))
