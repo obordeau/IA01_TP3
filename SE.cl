@@ -62,4 +62,10 @@
     (((eq TYPE pale_ale_pression)(AROME epices))(BEER delirium))
     (((eq TYPE pale_ale_bouteille)(AROME agrumes))(BEER chouffe))
     (((eq TYPE pale_ale_bouteille)(AROME epices))(BEER duvel))
+    (((eq STYLE triple)(eq TYPE sepcial))(STYLE special_tripel))
+    (((eq STYLE triple)(eq TYPE abbaye))(BEER Valdieu))
+    (((eq STYLE special_tripel)(= PRIX 1.6))(BEER queue_de_charrue))
+    (((eq STYLE special_tripel)(= PRIX 1.8)(AROME epices))(BEER gouden_carolus))
+    (((eq STYLE special_tripel)(= PRIX 1.8)(AROME agrumes)(BEER triple_karmerliet))
+    
 ))
