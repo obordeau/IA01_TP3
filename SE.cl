@@ -14,10 +14,6 @@
 
 (defparameter *bdf* NIL)
 
-(defun getVar (qst)
-    (nth 2 qst)
-)
-
 (defun getQuestion (premisseConnu varInconnue)
     (cond
         ((and (eq varInconnue 'REGION) (equal premisseConnu '(eq FAMILLE ipa))) (return-from getQuestion (nth 7 *questions*)))
@@ -25,9 +21,13 @@
         ((and (eq varInconnue 'AROME) (equal premisseConnu '(eq FAMILLE wheat_beer))) (return-from getQuestion (nth 9 *questions*)))
         ((and (eq varInconnue 'AROME) (equal premisseConnu '(eq STYLE fruit_beer))) (return-from getQuestion (nth 10 *questions*)))
         (T (dolist (q *questions*)
-            (if (eq (getVar q) varInconnue) (return-from getQuestion q))
+            (if (eq (getVariable q) varInconnue) (return-from getQuestion q))
         ))
     )
+)
+
+(defun getVariable (qst)
+    (nth 2 qst)
 )
 
 (defun responsePossible (question)
@@ -174,7 +174,3 @@
     (defparameter applicable  1)
     (chainageavant)
 )
-
-
-;(setq rule '(((eq STYLE tripel)(eq TYPE speciale))(eq STYLE special_tripel)))
-;(setq *bdf* '((BEER "Goudale") (STYLE TRIPEL) (FAMILLE BLONDE) (COULEUR BLONDE) (DEGRE 10)))
