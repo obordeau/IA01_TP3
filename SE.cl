@@ -158,7 +158,8 @@
     (if (assoc 'BEER *bdf*)
         (print (assoc 'BEER *bdf*))
         (parcours)
-    )
+    ) 
+    NIL
 )
 
 
