@@ -1,0 +1,29 @@
+@startmindmap
+!theme blueprint
+* SE
+** Couleur blonde
+*** Degré <= 5
+**** Wheat Beer
+***** Arôme fruits blancs
+****** Baptiste blanche
+***** Arôme agrumes
+****** Azimuth
+***** Arôme caramel
+****** Paillette
+*** Degré > 5
+**** Type Blonde
+***** Degré < 9
+****** Famille Pale Ale
+******* Servie pression
+******** Type Pale Ale pression
+********* Aromes agrumes
+********** Cuvée des Trolles
+********* Aromes épices
+********** Delirium Tremens
+******* Servie bouteille
+******** Type Pale Ale bouteille
+********* Aromes agrumes
+********** Chouffe
+********* Aromes épices
+********** Duvel
+@endminmap
