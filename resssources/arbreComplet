@@ -1,78 +1,79 @@
 @startmindmap
 !theme blueprint
 * SE
-** Couleur blonde
+** Couleur = blonde
 *** Degré <= 5
-**** Famille Wheat Beer
-***** Arôme fruits blancs
-****** Baptiste blanche
-***** Arôme agrumes
-****** Azimuth
-***** Arôme caramel
-****** Paillette
+**** Famille = Wheat Beer
+***** Arôme = fruits blancs
+****** Beer = Baptist blanche
+***** Arôme = agrumes
+****** Beer = Azimuth
+***** Arôme = caramel
+****** Beer = Paillette
 *** Degré > 5
-**** Type Blonde
+**** Type = Blonde
 ***** Degré < 9
-****** Famille Pale Ale
-******* Servie pression
-******** Type Pale Ale pression
-********* Aromes agrumes
-********** Cuvée des Trolles
-********* Aromes épices
-********** Delirium Tremens
-******* Servie bouteille
-******** Type Pale Ale bouteille
-********* Aromes agrumes
-********** Chouffe
-********* Aromes épices
-********** Duvel
+****** Famille = Pale Ale
+******* Servie = pression
+******** Type = Pale Ale pression
+********* Aromes = agrumes
+********** Beer = Cuvée des Trolls
+********* Aromes = épices
+********** Beer = Delirium Tremens
+******* Servie = bouteille
+******** Type = Pale Ale bouteille
+********* Aromes = agrumes
+********** Beer = Chouffe
+********* Aromes = épices
+********** Beer = Duvel
 ***** Degré >= 9
-****** Famille Tripel
-******* Type Speciale
-******** Style Sepciale Tripel
+****** Famille = Tripel
+******* Type = Speciale
+******** Style = Speciale Tripel
 ********* Prix = 1.6
-********** Queue de Charrue
+********** Beer = Queue de Charrue
 ********* Prix = 1.8
-********** Aromes épices
-*********** Gouden Carolus
-********** Aromes agrumes
-*********** Triple Karmeiliet
-******* Type Abbaye
-******** Valdieu
+********** Aromes = épices
+*********** Beer = Carolus Tripel
+********** Aromes = agrumes
+*********** Beer = Triple Karmeliet
+******* Type = Abbaye
+******** Beer = Valdieu
 
-** Couleur ambrée
-*** Famille IPA
-**** Région Canada
-***** Style Canadian IPA
-****** Castor
-**** Région Amérique 
-***** Style American IPA
-****** Lagunitas
+** Couleur = ambrée
+*** Famille = IPA
+**** Région = Canada
+***** Style = Canadian IPA
+****** Beer = Castor
+**** Région = Amérique 
+***** Style = American IPA
+****** Beer = Lagunitas
 
-** Couleur brune
+** Couleur = brune
 *** Degré <= 8
-**** Amertune moyenne
-***** Chimay Rouge
-**** Amertume forte St Feuillen brune
+**** Amertune = moyenne
+***** Beer = Chimay Rouge
+**** Amertume = forte 
+***** Beer = St Feuillen brune
 *** Degré > 8
-**** Famille Strong Ale
-***** Amertume moyenne 
-****** Style Light strong ale
-******* Région Grande-Bretagne
-******** Barbar
-******* Région Belgique
-******** Kwak
-***** Amertume Forte
-****** Style Dark Stong Ale
+**** Famille = Strong Ale
+***** Amertume = moyenne 
+****** Style = Light strong ale
+******* Région = Grande-Bretagne
+******** Beer = Barbar
+******* Région = Belgique
+******** Beer = Kwak
+***** Amertume = Forte
+****** Style = Dark Stong Ale
 ******* Prix <= 2
-******** Chimay Bleue
+******** Beer = Chimay Bleue
 ******* Prix > 2
-******** Gulden Draak
+******** Beer = Gulden Draak
 
-** Couleur rouge ou Orange
-*** Style Fruit Beer
-**** Arôme cerise
-***** Kaastel Rouge
-**** Arôme pêche
-***** Pêche Mel Bush
+** Couleur = rouge ou Orange
+*** Style = Fruit Beer
+**** Arôme = cerise
+***** Beer = Kasteel Rouge
+**** Arôme = pêche
+***** Beer = Pêche Mel Bush
 @endminmap
