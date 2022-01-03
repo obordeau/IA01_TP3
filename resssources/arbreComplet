@@ -30,13 +30,13 @@
 ****** Famille = Tripel
 ******* Type = Speciale
 ******** Style = Speciale Tripel
-********* Prix = 1.6
+********* Prix < 1.7
 ********** Beer = Queue de Charrue
-********* Prix = 1.8
+********* Prix >= 1.7
 ********** Aromes = épices
 *********** Beer = Carolus Tripel
 ********** Aromes = agrumes
-*********** Beer = Triple Karmeliet
+*********** Beer = Tripel Karmeliet
 ******* Type = Abbaye
 ******** Beer = Valdieu
 
@@ -65,9 +65,9 @@
 ******** Beer = Kwak
 ***** Amertume = Forte
 ****** Style = Dark Stong Ale
-******* Prix <= 2
+******* Prix < 2
 ******** Beer = Chimay Bleue
-******* Prix > 2
+******* Prix >= 2
 ******** Beer = Gulden Draak
 
 ** Couleur = rouge ou Orange
