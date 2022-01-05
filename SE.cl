@@ -12,6 +12,52 @@
     (Q11 "Preferez-vous un arome de cerise (0) ou de peche (1) dans votre biere?" AROME ((0 cerise)(1 peche)))
 ))
 
+(defparameter *rulesbase* '(
+    (((eq COULEUR blonde)(> DEGRE 5))(eq FAMILLE blonde))
+    (((eq COULEUR blonde)(<= DEGRE 5))(eq FAMILLE wheat_beer))
+    (((eq COULEUR ambree))(eq FAMILLE ipa))
+    (((eq COULEUR brune)(<= DEGRE 8))(eq FAMILLE dubel))
+    (((eq COULEUR brune)(> DEGRE 8))(eq FAMILLE strong_ale))
+
+    (((eq FAMILLE ipa)(eq REGION canada))(eq STYLE canadian_ipa))
+    (((eq FAMILLE ipa)(eq REGION usa))(eq STYLE american_ipa))
+    (((eq STYLE canadian_ipa))(eq BEER "Castor"))
+    (((eq STYLE american_ipa))(eq BEER "Lagunitas"))
+
+    (((eq FAMILLE wheat_beer)(eq AROME fruit_blanc))(eq BEER "Baptist blanche"))
+    (((eq FAMILLE wheat_beer)(eq AROME agrumes))(eq BEER "Azimuth"))
+    (((eq FAMILLE wheat_beer)(eq AROME caramel))(eq BEER "Paillette"))
+
+    (((eq FAMILLE dubel)(eq AMERTUME moyenne))(eq BEER "Chimay rouge"))
+    (((eq FAMILLE dubel)(eq AMERTUME forte))(eq BEER "St Feuillien brune"))
+
+    (((eq FAMILLE blonde)(< DEGRE 9))(eq STYLE pale_ale))
+    (((eq FAMILLE blonde)(>= DEGRE 9))(eq STYLE tripel))
+    (((eq STYLE pale_ale)(eq SERVIE pression))(eq TYPE pale_ale_pression))
+    (((eq STYLE pale_ale)(eq SERVIE bouteille))(eq TYPE pale_ale_bouteille))
+    (((eq TYPE pale_ale_pression)(eq AROME agrumes))(eq BEER "Cuvee des trolls"))
+    (((eq TYPE pale_ale_pression)(eq AROME epices))(eq BEER "Delirium"))
+    (((eq TYPE pale_ale_bouteille)(eq AROME agrumes))(eq BEER "Chouffe"))
+    (((eq TYPE pale_ale_bouteille)(eq AROME epices))(eq BEER "Duvel"))
+    (((eq STYLE tripel)(eq TYPE speciale))(eq STYLE2 special_tripel))
+    (((eq STYLE tripel)(eq TYPE abbaye))(eq BEER "Val dieu"))
+    (((eq STYLE2 special_tripel)(< PRIX 1.7))(eq BEER "Queue de charrue"))
+    (((eq STYLE2 special_tripel)(>= PRIX 1.7)(eq AROME epices))(eq BEER "Gouden Carolus"))
+    (((eq STYLE2 special_tripel)(>= PRIX 1.7)(eq AROME agrumes))(eq BEER "Tripel Karmeliet"))
+
+    (((eq FAMILLE strong_ale)(eq AMERTUME forte))(eq STYLE dark_strong_ale))
+    (((eq FAMILLE strong_ale)(eq AMERTUME moyenne))(eq STYLE light_strong_ale))
+    (((eq STYLE dark_strong_ale)(< PRIX 2))(eq BEER "Chimay bleue"))
+    (((eq STYLE dark_strong_ale)(>= PRIX 2))(eq BEER "Gulden Draak"))
+    (((eq STYLE light_strong_ale)(eq REGION gb))(eq BEER "Barbar"))
+    (((eq STYLE light_strong_ale)(eq REGION belgique))(eq BEER "Kwaak"))
+
+    (((eq COULEUR rouge))(eq STYLE fruit_beer))
+    (((eq COULEUR orange))(eq STYLE fruit_beer))
+    (((eq STYLE fruit_beer)(eq AROME cerise))(eq BEER "Kasteel rouge"))
+    (((eq STYLE fruit_beer)(eq AROME peche))(eq BEER "Peche mel Bush"))
+))
+
 (defparameter *bdf* NIL)
 
 (defun getQuestion (premisseConnu varInconnue)
@@ -70,58 +116,10 @@
 )
 
 (defun trueRule (but)
-;; renvoie T si but par exemple (eq COULEUR blonde) est vrai dans *bdf*
     (let ((value (cadr (assoc (cadr but) *bdf*))))
         (if value (funcall (car but) value (caddr but)) NIL)
     )
 )
-
-(defparameter *rulesbase* '(
-    (((eq COULEUR blonde)(> DEGRE 5))(eq FAMILLE blonde))
-    (((eq COULEUR blonde)(<= DEGRE 5))(eq FAMILLE wheat_beer))
-    (((eq COULEUR ambree))(eq FAMILLE ipa))
-    (((eq COULEUR brune)(<= DEGRE 8))(eq FAMILLE dubel))
-    (((eq COULEUR brune)(> DEGRE 8))(eq FAMILLE strong_ale))
-
-    (((eq FAMILLE ipa)(eq REGION canada))(eq STYLE canadian_ipa))
-    (((eq FAMILLE ipa)(eq REGION usa))(eq STYLE american_ipa))
-    (((eq STYLE canadian_ipa))(eq BEER "Castor"))
-    (((eq STYLE american_ipa))(eq BEER "Lagunitas"))
-
-    (((eq FAMILLE wheat_beer)(eq AROME fruit_blanc))(eq BEER "Baptist blanche"))
-    (((eq FAMILLE wheat_beer)(eq AROME agrumes))(eq BEER "Azimuth"))
-    (((eq FAMILLE wheat_beer)(eq AROME caramel))(eq BEER "Paillette"))
-
-    (((eq FAMILLE dubel)(eq AMERTUME moyenne))(eq BEER "Chimay rouge"))
-    (((eq FAMILLE dubel)(eq AMERTUME forte))(eq BEER "St Feuillien brune"))
-
-    (((eq FAMILLE blonde)(< DEGRE 9))(eq STYLE pale_ale))
-    (((eq FAMILLE blonde)(>= DEGRE 9))(eq STYLE tripel))
-    (((eq STYLE pale_ale)(eq SERVIE pression))(eq TYPE pale_ale_pression))
-    (((eq STYLE pale_ale)(eq SERVIE bouteille))(eq TYPE pale_ale_bouteille))
-    (((eq TYPE pale_ale_pression)(eq AROME agrumes))(eq BEER "Cuvee des trolls"))
-    (((eq TYPE pale_ale_pression)(eq AROME epices))(eq BEER "Delirium"))
-    (((eq TYPE pale_ale_bouteille)(eq AROME agrumes))(eq BEER "Chouffe"))
-    (((eq TYPE pale_ale_bouteille)(eq AROME epices))(eq BEER "Duvel"))
-    (((eq STYLE tripel)(eq TYPE speciale))(eq STYLE2 special_tripel))
-    (((eq STYLE tripel)(eq TYPE abbaye))(eq BEER "Val dieu"))
-    (((eq STYLE2 special_tripel)(< PRIX 1.7))(eq BEER "Queue de charrue"))
-    (((eq STYLE2 special_tripel)(>= PRIX 1.7)(eq AROME epices))(eq BEER "Gouden Carolus"))
-    (((eq STYLE2 special_tripel)(>= PRIX 1.7)(eq AROME agrumes))(eq BEER "Tripel Karmeliet"))
-
-    (((eq FAMILLE strong_ale)(eq AMERTUME forte))(eq STYLE dark_strong_ale))
-    (((eq FAMILLE strong_ale)(eq AMERTUME moyenne))(eq STYLE light_strong_ale))
-    (((eq STYLE dark_strong_ale)(< PRIX 2))(eq BEER "Chimay bleue"))
-    (((eq STYLE dark_strong_ale)(>= PRIX 2))(eq BEER "Gulden Draak"))
-    (((eq STYLE light_strong_ale)(eq REGION gb))(eq BEER "Barbar"))
-    (((eq STYLE light_strong_ale)(eq REGION belgique))(eq BEER "Kwaak"))
-
-    (((eq COULEUR rouge))(eq STYLE fruit_beer))
-    (((eq COULEUR orange))(eq STYLE fruit_beer))
-    (((eq STYLE fruit_beer)(eq AROME cerise))(eq BEER "Kasteel rouge"))
-    (((eq STYLE fruit_beer)(eq AROME peche))(eq BEER "Peche mel Bush"))
-))
-
 
 (defun affichagebeer ()
     (let ((beer (cadr (assoc 'BEER *bdf*))))
@@ -167,7 +165,7 @@
     )
 )
 
-
+; fonction principale à lancer
 (defun parcours ()
     (defparameter *bdf* NIL)
     (defparameter new_fact 0)
